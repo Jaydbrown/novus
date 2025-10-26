@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - NOVUS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="landingpage.css">
+    <style>
+        .services-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 20px 80px;
+            text-align: center;
+        }
+
+        .services-hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .services-hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .service-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 100px;
+            align-items: center;
+        }
+
+        .service-detail:nth-child(even) {
+            direction: rtl;
+        }
+
+        .service-detail:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .service-content {
+            padding: 20px;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .service-content h2 {
+            font-size: 36px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .service-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .service-features {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .service-features li {
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            color: #555;
+        }
+
+        .service-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .service-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .service-cta {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .service-cta:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .process-section {
+            background: #f8f9fa;
+            padding: 80px 20px;
+            margin-top: 80px;
+        }
+
+        .process-grid {
+            max-width: 1200px;
+            margin: 50px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .process-step {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .process-step h3 {
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .process-step p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .services-hero h1 {
+                font-size: 32px;
+            }
+
+            .service-detail {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .service-content h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">NOVUS</div>
+                <ul class="nav-links">
+                    <li><a href="landingpage.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="casestudies.html">Case Studies</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><button class="cta-button nav-cta" onclick="window.location.href='meeting.html'">Book Consultation</button></li>
+                </ul>
+                <div class="hamburger">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="services-hero">
+        <h1>Our Services</h1>
+        <p>Comprehensive IT solutions tailored to your business needs</p>
+    </section>
+
+    <!-- Services Details -->
+    <div class="services-container">
+        <!-- IT Strategy Consulting -->
+        <div class="service-detail" id="strategy">
+            <div class="service-content">
+                <div class="service-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h2>IT Strategy Consulting</h2>
+                <p>Transform your business with strategic IT planning that aligns technology with your business goals. Our expert consultants help you navigate complex technology decisions and create roadmaps for digital success.</p>
+                
+                <ul class="service-features">
+                    <li>Technology Assessment & Roadmap Development</li>
+                    <li>Digital Transformation Strategy</li>
+                    <li>IT Governance & Compliance</li>
+                    <li>Cost Optimization & ROI Analysis</li>
+                    <li>Vendor Selection & Management</li>
+                </ul>
+                
+                <a href="meeting.html" class="service-cta">Schedule Consultation</a>
+            </div>
+            <div class="service-image">
+                <img src="images/img03.jpg" alt="IT Strategy" onerror="this.src='https://via.placeholder.com/600x400/667eea/ffffff?text=IT+Strategy'">
+            </div>
+        </div>
+
+        <!-- Cybersecurity -->
+        <div class="service-detail" id="security">
+            <div class="service-image">
+                <img src="images/img04.jpg" alt="Cybersecurity" onerror="this.src='https://via.placeholder.com/600x400/764ba2/ffffff?text=Cybersecurity'">
+            </div>
+            <div class="service-content">
+                <div class="service-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h2>Cybersecurity Solutions</h2>
+                <p>Protect your business from evolving cyber threats with our comprehensive security solutions. We implement multi-layered defenses to safeguard your data, systems, and reputation.</p>
+                
+                <ul class="service-features">
+                    <li>Security Assessment & Penetration Testing</li>
+                    <li>Threat Detection & Response</li>
+                    <li>Security Architecture Design</li>
+                    <li>Compliance & Risk Management</li>
+                    <li>24/7 Security Monitoring</li>
+                </ul>
+                
+                <a href="meeting.html" class="service-cta">Get Security Audit</a>
+            </div>
+        </div>
+
+        <!-- Cloud Solutions -->
+        <div class="service-detail" id="cloud">
+            <div class="service-content">
+                <div class="service-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h2>Cloud Solutions</h2>
+                <p>Accelerate your business with cloud technology. We help you migrate, optimize, and manage your cloud infrastructure for maximum performance, scalability, and cost-efficiency.</p>
+                
+                <ul class="service-features">
+                    <li>Cloud Migration & Strategy</li>
+                    <li>Multi-Cloud & Hybrid Solutions</li>
+                    <li>Cloud Security & Compliance</li>
+                    <li>Infrastructure as Code (IaC)</li>
+                    <li>Cloud Cost Optimization</li>
+                </ul>
+                
+                <a href="meeting.html" class="service-cta">Explore Cloud Options</a>
+            </div>
+            <div class="service-image">
+                <img src="images/img05.jpg" alt="Cloud Solutions" onerror="this.src='https://via.placeholder.com/600x400/f093fb/ffffff?text=Cloud+Solutions'">
+            </div>
+        </div>
+
+        <!-- Digital Transformation -->
+        <div class="service-detail" id="transformation">
+            <div class="service-image">
+                <img src="images/img06.jpg" alt="Digital Transformation" onerror="this.src='https://via.placeholder.com/600x400/4facfe/ffffff?text=Digital+Transformation'">
+            </div>
+            <div class="service-content">
+                <div class="service-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h2>Digital Transformation</h2>
+                <p>Reimagine your business for the digital age. We help you leverage emerging technologies to create new value, improve customer experiences, and drive operational excellence.</p>
+                
+                <ul class="service-features">
+                    <li>Process Automation & Optimization</li>
+                    <li>AI & Machine Learning Integration</li>
+                    <li>Customer Experience Enhancement</li>
+                    <li>Data Analytics & Business Intelligence</li>
+                    <li>Legacy System Modernization</li>
+                </ul>
+                
+                <a href="meeting.html" class="service-cta">Start Your Transformation</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div style="text-align: center; margin-bottom: 30px;">
+            <h2 style="font-size: 42px; color: #2c3e50;">Our Process</h2>
+            <p style="font-size: 18px; color: #666;">How we deliver exceptional results</p>
+        </div>
+
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Discovery</h3>
+                <p>We start by understanding your business, challenges, and objectives through comprehensive consultation.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Strategy</h3>
+                <p>Our experts develop a customized strategy and roadmap aligned with your goals and budget.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>Implementation</h3>
+                <p>We execute the plan with precision, keeping you informed every step of the way.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Support</h3>
+                <p>Ongoing monitoring, optimization, and support to ensure continued success.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h2>NOVUS</h2>
+                    <p>Empowering businesses with cutting-edge IT solutions</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="casestudies.html">Case Studies</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#strategy">IT Strategy Consulting</a></li>
+                        <li><a href="#security">Cybersecurity</a></li>
+                        <li><a href="#cloud">Cloud Solutions</a></li>
+                        <li><a href="#transformation">Digital Transformation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NOVUS All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="landingpage.js"></script>
+</body>
+</html>

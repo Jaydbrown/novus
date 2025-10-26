@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule a Consultation</title>
+  <link rel="stylesheet" href="meeting.css">
+</head>
+<body>
+
+  <!-- Progress indicator -->
+  <div class="steps-indicator">
+    <div class="step active" id="step1Indicator">1. Pick a Date & Time</div>
+    <div class="step" id="step2Indicator">2. Your Details</div>
+  </div>
+
+  <!-- Step 1: Calendar -->
+  <div class="step-content" id="step1">
+    <div class="schedule-container">
+      
+      <!-- Left: Calendar -->
+      <div class="calendar-section">
+        <img src="your-logo.png" alt="Logo" class="calendar-logo">
+        <h2>Free Performance Consultation</h2>
+        <div class="calendar-header">
+          <button class="nav-btn" id="prevMonth">&lt;</button>
+          <h3 id="currentMonthYear"></h3>
+          <button class="nav-btn" id="nextMonth">&gt;</button>
+        </div>
+        
+        <table class="calendar-table">
+          <thead>
+            <tr>
+              <th>SUN</th><th>MON</th><th>TUE</th><th>WED</th>
+              <th>THU</th><th>FRI</th><th>SAT</th>
+            </tr>
+          </thead>
+          <tbody id="calendarBody">
+            <!-- Dates inserted by JS -->
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- Right: Meeting Details -->
+      <div class="meeting-section">
+        <h4>Meeting duration</h4>
+        <div class="duration-box">30 mins</div>
+        
+        <p><strong>What time works best?</strong></p>
+        <p>Showing times for <strong id="selectedDateDisplay">Select a date</strong></p>
+        
+        <p class="timezone">UTC -04:00 Eastern Time</p>
+        
+        <div class="time-slots" id="timeSlots">
+          <!-- Slots added dynamically -->
+        </div>
+
+        <button id="continueBtn" class="primary-btn" disabled>Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2: Form -->
+  <div class="hidden step-content" id="step2">
+    <div class="form-container">
+      <h2>Tell us about yourself</h2>
+      <form id="bookingForm">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" required>
+
+        <label for="company">Company (Optional)</label>
+        <input type="text" id="company">
+
+        <label for="notes">Additional Notes</label>
+        <textarea id="notes" rows="4"></textarea>
+
+        <button type="submit" class="primary-btn">Confirm Booking</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="meeting.js"></script>
+</body>
+</html>

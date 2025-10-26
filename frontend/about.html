@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - NOVUS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="landingpage.css">
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 20px 80px;
+            text-align: center;
+        }
+
+        .about-hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .about-hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        .about-content {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+            align-items: center;
+        }
+
+        .about-section:nth-child(even) {
+            direction: rtl;
+        }
+
+        .about-section:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .about-section img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .value-card i {
+            font-size: 48px;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            font-size: 22px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .value-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .team-section {
+            background: #f8f9fa;
+            padding: 80px 20px;
+            margin-top: 80px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 50px auto 0;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .team-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .team-info h3 {
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .team-info p {
+            color: #667eea;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .social-links a {
+            color: #999;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #667eea;
+        }
+
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 32px;
+            }
+
+            .about-section {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .about-text h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">NOVUS</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="casestudies.html">Case Studies</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><button class="cta-button nav-cta" onclick="window.location.href='meeting.html'">Book Consultation</button></li>
+                </ul>
+                <div class="hamburger">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <h1>About NOVUS</h1>
+        <p>Pioneering IT Solutions for a Digital Tomorrow</p>
+    </section>
+
+    <!-- About Content -->
+    <div class="about-content">
+        <!-- Mission Section -->
+        <div class="about-section">
+            <div class="about-text">
+                <h2>Our Mission</h2>
+                <p>At NOVUS, we are committed to empowering businesses through innovative IT solutions that drive growth, efficiency, and digital transformation.</p>
+                <p>We believe that technology should be an enabler, not a barrier. Our mission is to provide cutting-edge IT consultancy services that help organizations navigate the complex digital landscape with confidence.</p>
+                <p>With over a decade of experience, we've helped hundreds of companies transform their operations, enhance security, and achieve their strategic goals through technology.</p>
+            </div>
+            <div>
+                <img src="images/img02.jpg" alt="Team collaboration">
+            </div>
+        </div>
+
+        <!-- Story Section -->
+        <div class="about-section">
+            <div>
+                <img src="images/img03.jpg" alt="Company history">
+            </div>
+            <div class="about-text">
+                <h2>Our Story</h2>
+                <p>Founded in 2014, NOVUS began with a simple vision: to make enterprise-grade IT solutions accessible to businesses of all sizes.</p>
+                <p>What started as a small team of passionate technologists has grown into a full-service IT consultancy firm, serving clients across multiple industries and continents.</p>
+                <p>Today, we're proud to be at the forefront of digital innovation, helping organizations leverage emerging technologies like cloud computing, AI, and cybersecurity to stay competitive in an ever-evolving marketplace.</p>
+            </div>
+        </div>
+
+        <!-- Values -->
+        <div style="text-align: center; margin: 80px 0 30px;">
+            <h2 style="font-size: 42px; color: #2c3e50;">Our Core Values</h2>
+            <p style="font-size: 18px; color: #666; max-width: 700px; margin: 20px auto;">These principles guide everything we do</p>
+        </div>
+
+        <div class="values-grid">
+            <div class="value-card">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Innovation</h3>
+                <p>We constantly push boundaries and embrace new technologies to deliver cutting-edge solutions.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Integrity</h3>
+                <p>We operate with transparency, honesty, and the highest ethical standards in all our interactions.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-users"></i>
+                <h3>Collaboration</h3>
+                <p>We believe in the power of teamwork and building strong partnerships with our clients.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-trophy"></i>
+                <h3>Excellence</h3>
+                <p>We strive for perfection in every project, ensuring the highest quality deliverables.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div style="text-align: center; margin-bottom: 30px;">
+            <h2 style="font-size: 42px; color: #2c3e50;">Meet Our Team</h2>
+            <p style="font-size: 18px; color: #666;">The experts behind your success</p>
+        </div>
+
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="images/team1.jpg" alt="Team Member" onerror="this.src='https://via.placeholder.com/300x300/667eea/ffffff?text=CEO'">
+                <div class="team-info">
+                    <h3>John Anderson</h3>
+                    <p>Chief Executive Officer</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="images/team2.jpg" alt="Team Member" onerror="this.src='https://via.placeholder.com/300x300/764ba2/ffffff?text=CTO'">
+                <div class="team-info">
+                    <h3>Sarah Martinez</h3>
+                    <p>Chief Technology Officer</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="images/team3.jpg" alt="Team Member" onerror="this.src='https://via.placeholder.com/300x300/f093fb/ffffff?text=Lead'">
+                <div class="team-info">
+                    <h3>Michael Chen</h3>
+                    <p>Lead Security Consultant</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="images/team4.jpg" alt="Team Member" onerror="this.src='https://via.placeholder.com/300x300/4facfe/ffffff?text=Director'">
+                <div class="team-info">
+                    <h3>Emily Rodriguez</h3>
+                    <p>Director of Cloud Solutions</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h2>NOVUS</h2>
+                    <p>Empowering businesses with cutting-edge IT solutions</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="casestudies.html">Case Studies</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html#strategy">IT Strategy Consulting</a></li>
+                        <li><a href="services.html#security">Cybersecurity</a></li>
+                        <li><a href="services.html#cloud">Cloud Solutions</a></li>
+                        <li><a href="services.html#transformation">Digital Transformation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NOVUS All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="landingpage.js"></script>
+</body>
+</html>
