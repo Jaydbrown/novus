@@ -39,7 +39,8 @@ body {
     align-items: center;
     position: relative;
     color: #fff; 
-    padding: 80px 0;
+    padding: 80px 0 100px 0;
+    margin-bottom: 80px; /* Changes were made here: Added margin-bottom for spacing */ 
 }
 
 .hero::before {
@@ -49,7 +50,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(28, 36, 78, 0.85);
+    background-color: rgba(28, 36, 78, 0.767);
     z-index: 0;
 }
 
@@ -236,7 +237,7 @@ h3 {
 
 p {
     margin-bottom: 1rem;
-    color: var(--text-light);
+    color: #333333;
     font-size: 1.1rem;
 }
 
@@ -253,7 +254,7 @@ a {
 }
 
 a:hover {
-    color: var(--accent-color);
+    color: var(--light-color);
 }
 
 
@@ -537,7 +538,7 @@ a:hover {
 
 .service-card p {
     margin-bottom: 20px;
-    color: var(--text-light);
+    color: #333333;
 }
 
 .learn-more {
@@ -887,6 +888,10 @@ a:hover {
     transform: translateY(-3px);
 }
 
+.social-icons i{
+    color: white;
+}
+
 .footer-bottom {
     text-align: center;
     padding-top: 20px;
@@ -1010,4 +1015,12 @@ a:hover {
 
 .blog-inner-content {
     padding: 0px 10px 0px 10px;
+}
+
+.footer-brand p {
+    color: #333333;
+}
+
+.footer-bottom p {
+    color: #333333;
 }
