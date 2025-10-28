@@ -8,21 +8,50 @@
     <link rel="stylesheet" href="landingpage.css">
     <style>
         .services-hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: url("images/img13.jpg");
             color: white;
             padding: 120px 20px 80px;
             text-align: center;
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+            padding: 100px 0 100px 0;
+        }
+
+        .services-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(28, 36, 78, 0.767);
+            z-index: 0;
+        }
+
+        .container3 {
+            z-index: 1;
+            opacity: 2;
         }
 
         .services-hero h1 {
+            z-index: 2;
             font-size: 48px;
-            margin-bottom: 20px;
+            margin-bottom: 20px
         }
 
         .services-hero p {
+            color: white;
             font-size: 20px;
             max-width: 800px;
             margin: 0 auto;
+            z-index: 2;
         }
 
         .services-container {
@@ -54,7 +83,10 @@
         .service-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-color: #1000BE;
+            border-width: 4px;
+            border-style: solid;
+            background: white;
             border-radius: 20px;
             display: flex;
             align-items: center;
@@ -64,16 +96,33 @@
             margin-bottom: 30px;
         }
 
+        .service-icon i {
+            color: #1000BE;
+        }
+
         .service-content h2 {
             font-size: 36px;
-            color: #2c3e50;
+            color: #000000;
+            padding-bottom: 20px;
             margin-bottom: 20px;
+            position: relative;
+        }
+
+        .service-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 40%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #1000BE;
         }
 
         .service-content p {
             font-size: 16px;
             line-height: 1.8;
-            color: #555;
+            color: #333333;
             margin-bottom: 20px;
         }
 
@@ -86,14 +135,14 @@
             padding: 12px 0;
             padding-left: 35px;
             position: relative;
-            color: #555;
+            color: #333333;
         }
 
         .service-features li:before {
             content: "✓";
             position: absolute;
             left: 0;
-            color: #667eea;
+            color: #1000BE;
             font-weight: bold;
             font-size: 20px;
         }
@@ -113,7 +162,7 @@
         .service-cta {
             display: inline-block;
             padding: 15px 40px;
-            background: #667eea;
+            background: #1000BE;
             color: white;
             text-decoration: none;
             border-radius: 8px;
@@ -123,15 +172,45 @@
         }
 
         .service-cta:hover {
-            background: #5568d3;
+            background: #2980b9;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .process-section {
             background: #f8f9fa;
             padding: 80px 20px;
             margin-top: 80px;
+        }
+
+        .our-process {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .our-process h2 {
+            font-size: 42px;
+            color: #000000;
+            color: #000000;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .our-process h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #1000BE;
+        }
+
+        .our-process p {
+            font-size: 18px;
+            color: #333333;
         }
 
         .process-grid {
@@ -154,7 +233,7 @@
         .step-number {
             width: 50px;
             height: 50px;
-            background: #667eea;
+            background: #1000BE;
             color: white;
             border-radius: 50%;
             display: flex;
@@ -167,13 +246,21 @@
 
         .process-step h3 {
             font-size: 20px;
-            color: #2c3e50;
+            color: #000000;
             margin-bottom: 15px;
         }
 
         .process-step p {
-            color: #666;
+            color: #333333;
             line-height: 1.6;
+        }
+
+        .footer-brand p {
+            color: #333333;
+        }
+
+        .footer-bottom p {
+            color: #333333;
         }
 
         @media (max-width: 768px) {
@@ -199,7 +286,7 @@
             <nav class="navbar">
                 <div class="logo">NOVUS</div>
                 <ul class="nav-links">
-                    <li><a href="landingpage.html">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="services.html" class="active">Services</a></li>
                     <li><a href="casestudies.html">Case Studies</a></li>
@@ -217,10 +304,12 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="services-hero">
-        <h1>Our Services</h1>
-        <p>Comprehensive IT solutions tailored to your business needs</p>
-    </section>
+    <div class="container3">
+        <section class="services-hero">
+            <h1>Our Services</h1>
+            <p>Comprehensive IT solutions tailored to your business needs</p>
+        </section>
+    </div>
 
     <!-- Services Details -->
     <div class="services-container">
@@ -323,9 +412,9 @@
 
     <!-- Process Section -->
     <section class="process-section">
-        <div style="text-align: center; margin-bottom: 30px;">
-            <h2 style="font-size: 42px; color: #2c3e50;">Our Process</h2>
-            <p style="font-size: 18px; color: #666;">How we deliver exceptional results</p>
+        <div class="our-process">
+            <h2>Our Process</h2>
+            <p>How we deliver exceptional results</p>
         </div>
 
         <div class="process-grid">

@@ -8,22 +8,52 @@
     <link rel="stylesheet" href="landingpage.css">
     <style>
         .casestudies-hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: url("images/img14.jpg");
             color: white;
             padding: 120px 20px 80px;
             text-align: center;
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+            padding: 100px 0 100px 0;
         }
 
+        .casestudies-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(28, 36, 78, 0.671);
+            z-index: 0;
+        }
+
+        /* .container4 {
+            z-index: 1;
+            opacity: 2;
+        } */
+
         .casestudies-hero h1 {
+            z-index: 2;
             font-size: 48px;
-            margin-bottom: 20px;
+            margin-bottom: 20px
         }
 
         .casestudies-hero p {
+            color: white;
             font-size: 20px;
             max-width: 800px;
             margin: 0 auto;
+            z-index: 2;
         }
+
 
         .casestudies-container {
             max-width: 1200px;
@@ -70,7 +100,7 @@
 
         .casestudy-tag {
             display: inline-block;
-            background: #667eea;
+            background: #1000BE;
             color: white;
             padding: 6px 15px;
             border-radius: 20px;
@@ -82,14 +112,14 @@
 
         .casestudy-content h2 {
             font-size: 32px;
-            color: #2c3e50;
+            color: #000000;
             margin-bottom: 20px;
         }
 
         .casestudy-content p {
             font-size: 16px;
             line-height: 1.8;
-            color: #555;
+            color: #333333;
             margin-bottom: 20px;
         }
 
@@ -109,13 +139,13 @@
 
         .stat-box h3 {
             font-size: 32px;
-            color: #667eea;
+            color: #1000BE;
             margin-bottom: 5px;
         }
 
         .stat-box p {
             font-size: 14px;
-            color: #666;
+            color: #555555;
             margin: 0;
         }
 
@@ -125,8 +155,8 @@
             gap: 10px;
             padding: 12px 30px;
             background: transparent;
-            color: #667eea;
-            border: 2px solid #667eea;
+            color: #1000BE;
+            border: 2px solid #1000BE;
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
@@ -134,7 +164,7 @@
         }
 
         .casestudy-cta:hover {
-            background: #667eea;
+            background: #1000BE;
             color: white;
             transform: translateX(5px);
         }
@@ -143,6 +173,35 @@
             background: #f8f9fa;
             padding: 80px 20px;
             margin-top: 80px;
+        }
+
+        .industries-serve{
+            text-align: center; 
+            margin-bottom: 30px;
+        }
+
+        .industries-serve h2{
+            font-size: 42px; 
+            color: #000000;
+            padding-bottom: 15px;
+            position: relative;
+            text-align: center;
+        }
+
+        .industries-serve h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #1000BE;
+        }
+
+        .industries-serve p{
+            font-size: 18px; 
+            color: #333333;
         }
 
         .industries-grid {
@@ -168,19 +227,27 @@
 
         .industry-card i {
             font-size: 48px;
-            color: #667eea;
+            color: #1000BE;
             margin-bottom: 20px;
         }
 
         .industry-card h3 {
             font-size: 20px;
-            color: #2c3e50;
+            color: #000000;
             margin-bottom: 10px;
         }
 
         .industry-card p {
-            color: #666;
+            color: #333333;
             font-size: 14px;
+        }
+
+        .footer-brand p {
+            color: #333333;
+        }
+
+        .footer-bottom p {
+            color: #333333;
         }
 
         @media (max-width: 768px) {
@@ -370,9 +437,9 @@
 
     <!-- Industries Section -->
     <section class="industries-section">
-        <div style="text-align: center; margin-bottom: 30px;">
-            <h2 style="font-size: 42px; color: #2c3e50;">Industries We Serve</h2>
-            <p style="font-size: 18px; color: #666;">Delivering excellence across diverse sectors</p>
+        <div class="industries-serve">
+            <h2>Industries We Serve</h2>
+            <p>Delivering excellence across diverse sectors</p>
         </div>
 
         <div class="industries-grid">
