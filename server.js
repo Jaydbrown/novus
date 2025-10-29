@@ -202,8 +202,8 @@ app.listen(PORT, async () => {
   
   console.log('✨ Server is ready to accept connections');
   console.log('\n🔧 Debug endpoints available:');
-  console.log(`   GET  http://localhost:${PORT}/api/debug/admin-check`);
-  console.log(`   GET  http://localhost:${PORT}/api/debug/force-create-admin`);
-  console.log(`   POST http://localhost:${PORT}/api/debug/test-password`);
+  console.log(`   GET  https://novus-frontend-ten.vercel.app/api/debug/admin-check`);
+  console.log(`   GET https://novus-frontend-ten.vercel.app/api/debug/force-create-admin`);
+  console.log(`   POST https://novus-frontend-ten.vercel.app/api/debug/test-password`);
   console.log('\n⚠️  REMEMBER: Remove debug endpoints before production!\n');
 });
