@@ -1,40 +1,49 @@
 // ==================== scripts/createAdmin.js ====================
 const Admin = require('../models/Admin');
-const readline = require('readline');
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-const question = (query) => new Promise((resolve) => rl.question(query, resolve));
 
 (async () => {
   try {
     console.log('\n=== Create Admin Account ===\n');
     
-    // Interactive with default values
-    const username = await question('Enter username [jaiyeola]: ') || 'jaiyeola';
-    const email = await question('Enter email [jaiyeolawety705@gmail.com]: ') || 'jaiyeolawety705@gmail.com';
-    const password = await question('Enter password [jaiyeolaeva]: ') || 'jaiyeolaeva';
+    // Your credentials
+    const username = 'jaiyeola';
+    const email = 'jaiyeolawety705@gmail.com';
+    const password = 'jaiyeolaeva';
     
     console.log('Creating admin with:');
     console.log(`Username: ${username}`);
     console.log(`Email: ${email}`);
     console.log('Password: ********\n');
     
-    const admin = await Admin.create({ username, email, password });
+    // Check if admin already exists
+    const existingAdmin = await Admin.findByUsername(username);
+    if (existingAdmin) {
+      console.log('⚠️  Admin already exists! Updating password...\n');
+      
+      // Update existing admin
+      await Admin.updatePassword(existingAdmin.id, password);
+      console.log('✓ Admin password updated successfully!');
+      console.log(`Username: ${username}`);
+      console.log(`Email: ${email}`);
+      console.log(`ID: ${existingAdmin.id}\n`);
+    } else {
+      // Create new admin (password will be hashed by the model)
+      const admin = await Admin.create({ username, email, password });
+      
+      console.log('✓ Admin account created successfully!');
+      console.log(`Username: ${admin.username}`);
+      console.log(`Email: ${admin.email}`);
+      console.log(`ID: ${admin.id}\n`);
+    }
     
-    console.log('\n✓ Admin account created successfully!');
-    console.log(`Username: ${admin.username}`);
-    console.log(`Email: ${admin.email}`);
-    console.log(`ID: ${admin.id}\n`);
+    console.log('You can now login with:');
+    console.log(`Username: ${username}`);
+    console.log(`Password: ${password}\n`);
     
-    rl.close();
     process.exit(0);
   } catch (error) {
     console.error('\n✗ Failed to create admin account:', error.message);
-    rl.close();
+    console.error('Full error:', error);
     process.exit(1);
   }
 })();
