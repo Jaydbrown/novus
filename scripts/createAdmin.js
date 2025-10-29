@@ -13,9 +13,15 @@ const question = (query) => new Promise((resolve) => rl.question(query, resolve)
   try {
     console.log('\n=== Create Admin Account ===\n');
     
-    const username = await question('Enter username: ');
-    const email = await question('Enter email: ');
-    const password = await question('Enter password: ');
+    // Interactive with default values
+    const username = await question('Enter username [jaiyeola]: ') || 'jaiyeola';
+    const email = await question('Enter email [jaiyeolawety705@gmail.com]: ') || 'jaiyeolawety705@gmail.com';
+    const password = await question('Enter password [jaiyeolaeva]: ') || 'jaiyeolaeva';
+    
+    console.log('Creating admin with:');
+    console.log(`Username: ${username}`);
+    console.log(`Email: ${email}`);
+    console.log('Password: ********\n');
     
     const admin = await Admin.create({ username, email, password });
     
