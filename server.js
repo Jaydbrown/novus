@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
-
 const authRoutes = require('./routes/authRoutes');
 const bookingRoutes = require('./routes/bookingRoutes');
 const contactRoutes = require('./routes/contactRoutes');
@@ -9,6 +8,7 @@ const newsletterRoutes = require('./routes/newsletterRoutes');
 const settingsRoutes = require('./routes/settingsRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const blogRoutes = require('./routes/blogRoutes');
+const Admin = require('./models/Admin');
 
 const app = express();
 
@@ -32,43 +32,46 @@ app.use(cors({
   credentials: true,
 }));
 
-// ==================== Add this to your server.js or app.js ====================
-// Place this code AFTER your database connection is established
+app.use(express.json());
+app.use(express.static('public'));
 
-const Admin = require('./models/Admin');
-
-// Auto-create admin on startup
+// ==================== Auto-create Admin on Startup ====================
 async function ensureAdminExists() {
   try {
     const username = 'jaiyeola';
     const email = 'jaiyeolawety705@gmail.com';
     const password = 'jaiyeolaeva';
     
+    console.log('🔍 Checking admin account...');
+    
     // Check if admin exists
     const existingAdmin = await Admin.findByUsername(username);
     
     if (!existingAdmin) {
       // Create admin if doesn't exist
+      console.log('📝 Creating admin account...');
       const admin = await Admin.create({ username, email, password });
-      console.log('✅ Admin account created automatically');
+      console.log('✅ Admin account created automatically!');
+      console.log(`   ID: ${admin.id}`);
       console.log(`   Username: ${admin.username}`);
       console.log(`   Email: ${admin.email}`);
+      console.log(`   Password: jaiyeolaeva`);
     } else {
       console.log('✅ Admin account already exists');
+      console.log(`   ID: ${existingAdmin.id}`);
+      console.log(`   Username: ${existingAdmin.username}`);
+      
+      // OPTIONAL: Force password update (uncomment if you need to reset password)
+      // const bcrypt = require('bcrypt');
+      // const hashedPassword = await bcrypt.hash(password, 10);
+      // await Admin.updatePassword(existingAdmin.id, password);
+      // console.log('   🔄 Password updated to: jaiyeolaeva');
     }
   } catch (error) {
-    console.error('⚠️  Admin creation check failed:', error.message);
+    console.error('⚠️  Admin setup error:', error.message);
+    console.error('   Full error:', error);
   }
 }
-
-// Call this function after database is connected
-ensureAdminExists();
-
-// Continue with your server startup code...
-// app.listen() etc.
-
-app.use(express.json());
-app.use(express.static('public'));
 
 // ✅ Routes
 app.use('/api/auth', authRoutes);
@@ -85,8 +88,14 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Something went wrong!' });
 });
 
+// ✅ Start server and ensure admin exists
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-});
 
+app.listen(PORT, async () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+  
+  // Create admin after server starts
+  await ensureAdminExists();
+  
+  console.log('✨ Server is ready to accept connections');
+});
