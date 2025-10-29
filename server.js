@@ -32,6 +32,41 @@ app.use(cors({
   credentials: true,
 }));
 
+// ==================== Add this to your server.js or app.js ====================
+// Place this code AFTER your database connection is established
+
+const Admin = require('./models/Admin');
+
+// Auto-create admin on startup
+async function ensureAdminExists() {
+  try {
+    const username = 'jaiyeola';
+    const email = 'jaiyeolawety705@gmail.com';
+    const password = 'jaiyeolaeva';
+    
+    // Check if admin exists
+    const existingAdmin = await Admin.findByUsername(username);
+    
+    if (!existingAdmin) {
+      // Create admin if doesn't exist
+      const admin = await Admin.create({ username, email, password });
+      console.log('✅ Admin account created automatically');
+      console.log(`   Username: ${admin.username}`);
+      console.log(`   Email: ${admin.email}`);
+    } else {
+      console.log('✅ Admin account already exists');
+    }
+  } catch (error) {
+    console.error('⚠️  Admin creation check failed:', error.message);
+  }
+}
+
+// Call this function after database is connected
+ensureAdminExists();
+
+// Continue with your server startup code...
+// app.listen() etc.
+
 app.use(express.json());
 app.use(express.static('public'));
 
@@ -54,3 +89,4 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
+
