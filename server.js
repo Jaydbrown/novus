@@ -35,6 +35,110 @@ app.use(cors({
 app.use(express.json());
 app.use(express.static('public'));
 
+// ==================== DEBUG ENDPOINTS (REMOVE IN PRODUCTION) ====================
+
+// Check if admin exists
+app.get('/api/debug/admin-check', async (req, res) => {
+  try {
+    const admin = await Admin.findByUsername('jaiyeola');
+    
+    if (admin) {
+      res.json({
+        exists: true,
+        id: admin.id,
+        username: admin.username,
+        email: admin.email,
+        hasPassword: !!admin.password,
+        passwordLength: admin.password ? admin.password.length : 0,
+        createdAt: admin.created_at
+      });
+    } else {
+      res.json({
+        exists: false,
+        message: 'Admin "jaiyeola" not found in database'
+      });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Force create admin
+app.get('/api/debug/force-create-admin', async (req, res) => {
+  try {
+    const username = 'jaiyeola';
+    const email = 'jaiyeolawety705@gmail.com';
+    const password = 'jaiyeolaeva';
+    
+    // Delete existing if any
+    try {
+      const existing = await Admin.findByUsername(username);
+      if (existing) {
+        await Admin.deleteById(existing.id);
+        console.log('🗑️  Deleted existing admin');
+      }
+    } catch (e) {
+      console.log('No existing admin to delete');
+    }
+    
+    // Create new admin
+    const admin = await Admin.create({ username, email, password });
+    
+    console.log('✅ Admin force-created:', admin.username);
+    
+    res.json({
+      success: true,
+      message: 'Admin created successfully! You can now login.',
+      admin: {
+        id: admin.id,
+        username: admin.username,
+        email: admin.email,
+        created_at: admin.created_at
+      },
+      loginCredentials: {
+        username: username,
+        password: password
+      }
+    });
+  } catch (error) {
+    console.error('❌ Force create error:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Test password
+app.post('/api/debug/test-password', async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    
+    const admin = await Admin.findByUsername(username || 'jaiyeola');
+    
+    if (!admin) {
+      return res.json({ error: 'Admin not found' });
+    }
+    
+    const isValid = await Admin.comparePassword(
+      password || 'jaiyeolaeva', 
+      admin.password
+    );
+    
+    res.json({
+      adminExists: true,
+      passwordMatch: isValid,
+      testedPassword: password || 'jaiyeolaeva',
+      adminInfo: {
+        id: admin.id,
+        username: admin.username,
+        email: admin.email
+      }
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// ==================== END DEBUG ENDPOINTS ====================
+
 // ==================== Auto-create Admin on Startup ====================
 async function ensureAdminExists() {
   try {
@@ -61,11 +165,10 @@ async function ensureAdminExists() {
       console.log(`   ID: ${existingAdmin.id}`);
       console.log(`   Username: ${existingAdmin.username}`);
       
-      // OPTIONAL: Force password update (uncomment if you need to reset password)
-      // const bcrypt = require('bcrypt');
-      // const hashedPassword = await bcrypt.hash(password, 10);
+      // Force password reset every time (uncomment if needed)
+      // console.log('🔄 Resetting password...');
       // await Admin.updatePassword(existingAdmin.id, password);
-      // console.log('   🔄 Password updated to: jaiyeolaeva');
+      // console.log('   Password updated to: jaiyeolaeva');
     }
   } catch (error) {
     console.error('⚠️  Admin setup error:', error.message);
@@ -98,4 +201,9 @@ app.listen(PORT, async () => {
   await ensureAdminExists();
   
   console.log('✨ Server is ready to accept connections');
+  console.log('\n🔧 Debug endpoints available:');
+  console.log(`   GET  http://localhost:${PORT}/api/debug/admin-check`);
+  console.log(`   GET  http://localhost:${PORT}/api/debug/force-create-admin`);
+  console.log(`   POST http://localhost:${PORT}/api/debug/test-password`);
+  console.log('\n⚠️  REMEMBER: Remove debug endpoints before production!\n');
 });
