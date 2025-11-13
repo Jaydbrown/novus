@@ -22,7 +22,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #667eea 0%, #1000BE 100%);
 }
 
 .login-container {
@@ -41,13 +41,13 @@ body {
 
 .login-header h1 {
   font-size: 32px;
-  color: #667eea;
+  color: #1000BE;
   margin-bottom: 10px;
 }
 
 .login-header h2 {
   font-size: 20px;
-  color: #666;
+  color: #333;
   font-weight: 400;
 }
 

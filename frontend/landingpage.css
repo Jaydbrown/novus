@@ -354,10 +354,28 @@ a:hover {
     color: var(--text-color);
     font-weight: 500;
     font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
 }
 
 .nav-links a:hover {
     color: var(--secondary-color);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--secondary-color);
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--secondary-color);
 }
 
 .nav-cta {
@@ -1023,4 +1041,1032 @@ a:hover {
 
 .footer-bottom p {
     color: #333333;
+}
+
+/* ========================================
+   ENHANCED RESPONSIVE STYLES
+   Optimized for iPhone & Tablet devices
+   ======================================== */
+
+/* Base improvements for better mobile rendering */
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ========================================
+   TABLET LANDSCAPE (992px - 1200px)
+   ======================================== */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+        padding: 0 30px;
+    }
+    
+    .container1 {
+        max-width: 960px;
+        padding: 0 30px;
+    }
+    
+    h1 {
+        font-size: 2.75rem;
+    }
+    
+    h2 {
+        font-size: 2.25rem;
+    }
+}
+
+/* ========================================
+   TABLET PORTRAIT (768px - 992px)
+   ======================================== */
+@media (max-width: 992px) {
+    /* Navigation adjustments */
+    .nav-links {
+        margin-left: 20px;
+    }
+    
+    .nav-links li {
+        margin-left: 20px;
+    }
+    
+    /* Hero section */
+    .hero {
+        min-height: auto;
+        padding: 120px 0 80px;
+    }
+    
+    .container1 {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 0 30px;
+    }
+    
+    .hero-content {
+        text-align: center;
+        padding: 0 20px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    .contact-form {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 40px 30px;
+    }
+    
+    /* About section */
+    .about {
+        flex-direction: column;
+        padding: 80px 0;
+        text-align: center;
+    }
+    
+    .about-content {
+        margin-left: 0;
+        text-align: center;
+        padding: 0 20px;
+    }
+    
+    .about2 {
+        margin-top: 40px;
+    }
+    
+    .about-img {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+    
+    /* Services grid */
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+    
+    .service-card {
+        padding: 35px 25px;
+    }
+    
+    /* Stats section */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    
+    .stat-item h3 {
+        font-size: 2.5rem;
+    }
+    
+    /* Case studies */
+    .case-studies-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+    
+    /* Blog grid */
+    .blog-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+    
+    /* Contact section */
+    .contact-info {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+    
+    .contact-method {
+        margin: 0;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+/* ========================================
+   MOBILE LANDSCAPE & SMALL TABLETS (576px - 768px)
+   ======================================== */
+@media (max-width: 768px) {
+    /* Container adjustments */
+    .container {
+        padding: 0 20px;
+    }
+    
+    .container1 {
+        padding: 0 20px;
+    }
+    
+    /* Typography */
+    h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    h2 {
+        font-size: 1.85rem;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+    }
+    
+    p {
+        font-size: 1rem;
+    }
+    
+    /* Header - Mobile menu active */
+    .header {
+        padding: 12px 0;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .hamburger {
+        display: block;
+        z-index: 1001;
+    }
+    
+    .nav-links {
+        position: fixed;
+        left: -100%;
+        top: 60px;
+        gap: 0;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: left 0.3s ease;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        padding: 30px 0;
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
+        margin-left: 0;
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .nav-links li {
+        margin: 0;
+        padding: 15px 0;
+        border-bottom: 1px solid #f0f0f0;
+        width: 100%;
+    }
+    
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: 10px 20px;
+        font-size: 1.1rem;
+    }
+    
+    .nav-cta {
+        margin: 15px 20px 0;
+        width: calc(100% - 40px);
+        display: block;
+    }
+    
+    /* Hero section mobile */
+    .hero {
+        padding: 100px 0 60px;
+        min-height: auto;
+        margin-bottom: 60px;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.85rem;
+        margin-bottom: 18px;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+    
+    .hero-buttons .cta-button {
+        width: 100%;
+        padding: 14px 20px;
+    }
+    
+    .contact-form {
+        padding: 30px 20px;
+        margin-top: 30px;
+    }
+    
+    .contact-form .form-group {
+        margin-bottom: 18px;
+    }
+    
+    .contact-form .form-group input,
+    .contact-form .form-group textarea {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+    }
+    
+    .contact-form .cta-button.primary {
+        padding: 14px;
+        font-size: 1rem;
+    }
+    
+    /* About section mobile */
+    .about {
+        padding: 60px 0;
+    }
+    
+    .about-content {
+        padding: 0 10px;
+    }
+    
+    .about-content p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    .about-img {
+        max-width: 100%;
+        margin-top: 30px;
+        border-radius: 8px;
+    }
+    
+    /* Services mobile */
+    .services {
+        padding: 60px 0;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .service-card {
+        padding: 30px 20px;
+    }
+    
+    .service-card h3 {
+        font-size: 1.35rem;
+    }
+    
+    .service-card i {
+        font-size: 1.5rem !important;
+    }
+    
+    /* Stats mobile */
+    .stats {
+        padding: 60px 0;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+    
+    .stat-item i {
+        font-size: 2rem !important;
+    }
+    
+    .stat-item h3 {
+        font-size: 2rem;
+    }
+    
+    .stat-item p {
+        font-size: 0.95rem;
+    }
+    
+    /* Case studies mobile */
+    .case-studies {
+        padding: 60px 0;
+    }
+    
+    .case-studies-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .case-study-card {
+        padding: 0 0 30px 0;
+    }
+    
+    .case-study-inner-content {
+        padding: 0 15px;
+    }
+    
+    .case-study-inner-content h3 {
+        font-size: 1.25rem;
+        margin-top: 15px;
+    }
+    
+    .case-study-inner-content p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    /* Testimonials mobile */
+    .testimonials {
+        padding: 60px 0;
+    }
+    
+    .testimonials-slider {
+        max-width: 100%;
+    }
+    
+    .testimonial-slide {
+        padding: 20px 10px;
+    }
+    
+    .testimonial-content {
+        padding: 30px 20px;
+    }
+    
+    .testimonial-content img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 15px;
+    }
+    
+    .client-name {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+    }
+    
+    .testimonial-content p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    .slider-controls {
+        margin-top: 20px;
+    }
+    
+    .slider-prev,
+    .slider-next {
+        width: 36px;
+        height: 36px;
+    }
+    
+    /* Newsletter mobile */
+    .subscribe-form {
+        padding: 50px 20px;
+        margin-top: 40px;
+    }
+    
+    .subscribe-form h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .subscribe-form p {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+    }
+    
+    .subscribe-form form {
+        flex-direction: column;
+        max-width: 100%;
+    }
+    
+    .subscribe-form input {
+        width: 100%;
+        border-radius: 4px;
+        margin-bottom: 12px;
+        padding: 14px 15px;
+    }
+    
+    .subscribe-form button {
+        width: 100%;
+        border-radius: 4px;
+        margin-left: 0;
+        padding: 14px;
+    }
+    
+    /* Blog mobile */
+    .blog {
+        padding: 60px 0;
+    }
+    
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 40px;
+    }
+    
+    .blog-post {
+        padding: 0 0 30px 0;
+    }
+    
+    .blog-inner-content {
+        padding: 0 15px;
+    }
+    
+    .blog-inner-content h3 {
+        font-size: 1.25rem;
+        margin-top: 15px;
+    }
+    
+    .blog-inner-content p {
+        font-size: 0.95rem;
+    }
+    
+    /* Contact mobile */
+    .contact {
+        padding: 60px 0;
+    }
+    
+    .contact-content {
+        gap: 30px;
+        margin-top: 30px;
+    }
+    
+    .contact-info {
+        flex-direction: column;
+        gap: 25px;
+        width: 100%;
+    }
+    
+    .contact-method {
+        margin: 0;
+        padding: 0 20px;
+    }
+    
+    .contact-method i {
+        font-size: 1.75rem;
+    }
+    
+    .contact-method h3 {
+        font-size: 1.25rem;
+    }
+    
+    .contact-method p {
+        font-size: 0.95rem;
+    }
+    
+    .contact-info-button {
+        width: 100%;
+        padding: 0 20px;
+    }
+    
+    .contact-info-button .cta-button {
+        width: 100%;
+        padding: 14px;
+    }
+    
+    /* Footer mobile */
+    .footer {
+        padding: 60px 0 20px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-brand h2 {
+        font-size: 1.75rem;
+    }
+    
+    .footer-brand p {
+        font-size: 0.95rem;
+    }
+    
+    .footer-links h3,
+    .footer-services h3,
+    .footer-social h3 {
+        font-size: 1.1rem;
+    }
+    
+    .footer-links ul,
+    .footer-services ul {
+        padding: 0;
+    }
+    
+    .social-icons {
+        justify-content: center;
+    }
+    
+    .footer-bottom {
+        margin-top: 30px;
+        padding-top: 20px;
+    }
+}
+
+/* ========================================
+   IPHONE SE / SMALL MOBILE (320px - 576px)
+   ======================================== */
+@media (max-width: 576px) {
+    /* Even tighter spacing for small phones */
+    .container {
+        padding: 0 15px;
+    }
+    
+    .container1 {
+        padding: 0 15px;
+    }
+    
+    /* Typography adjustments */
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    h2 {
+        font-size: 1.65rem;
+    }
+    
+    h3 {
+        font-size: 1.35rem;
+    }
+    
+    /* Header */
+    .logo {
+        font-size: 1.4rem;
+    }
+    
+    /* Hero ultra-compact */
+    .hero {
+        padding: 90px 0 50px;
+        margin-bottom: 50px;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.65rem;
+        line-height: 1.3;
+    }
+    
+    .hero-content p {
+        font-size: 0.95rem;
+    }
+    
+    .contact-form {
+        padding: 25px 15px;
+    }
+    
+    .contact-form .form-group input,
+    .contact-form .form-group textarea {
+        padding: 11px 13px;
+        font-size: 0.9rem;
+    }
+    
+    /* Section padding reduction */
+    .about,
+    .services,
+    .stats,
+    .case-studies,
+    .testimonials,
+    .blog,
+    .contact {
+        padding: 50px 0;
+    }
+    
+    .section-header {
+        margin-bottom: 35px;
+    }
+    
+    .section-header h2 {
+        font-size: 1.6rem;
+        padding-bottom: 12px;
+    }
+    
+    .section-header h2::after {
+        width: 60px;
+    }
+    
+    /* Stats - Stack completely on small phones */
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .stat-item {
+        padding: 15px 0;
+    }
+    
+    .stat-item i {
+        font-size: 1.75rem !important;
+    }
+    
+    .stat-item h3 {
+        font-size: 1.85rem;
+        margin: 10px 0;
+    }
+    
+    .stat-item p {
+        font-size: 0.9rem;
+    }
+    
+    /* Cards adjustments */
+    .service-card,
+    .case-study-card,
+    .blog-post {
+        padding: 25px 15px;
+    }
+    
+    /* Buttons */
+    .cta-button {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+    }
+    
+    /* Learn more / Read more links */
+    .learn-more,
+    .read-more {
+        font-size: 0.9rem;
+    }
+    
+    /* Newsletter */
+    .subscribe-form {
+        padding: 40px 15px;
+    }
+    
+    .subscribe-form h3 {
+        font-size: 1.35rem;
+    }
+    
+    .subscribe-form input,
+    .subscribe-form button {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+    }
+    
+    /* Contact methods - Better spacing */
+    .contact-method {
+        padding: 0 10px;
+    }
+    
+    .contact-method i {
+        font-size: 1.5rem;
+    }
+    
+    /* Testimonial images */
+    .testimonial-content img {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .client-name {
+        font-size: 1.15rem;
+    }
+    
+    /* Footer adjustments */
+    .footer-brand h2 {
+        font-size: 1.6rem;
+    }
+    
+    .footer-brand p,
+    .footer-links a,
+    .footer-services a {
+        font-size: 0.9rem;
+    }
+    
+    .social-icons a {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ========================================
+   ULTRA-SMALL DEVICES (iPhone SE 1st gen, etc.)
+   ======================================== */
+@media (max-width: 375px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .stat-item h3 {
+        font-size: 1.75rem;
+    }
+}
+
+/* ========================================
+   LANDSCAPE ORIENTATION FIXES
+   ======================================== */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 80px 0 40px;
+    }
+    
+    .nav-links {
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.75rem;
+    }
+    
+    .contact-form {
+        padding: 25px 20px;
+    }
+    
+    .contact-form .form-group {
+        margin-bottom: 15px;
+    }
+}
+
+/* ========================================
+   TOUCH DEVICE IMPROVEMENTS
+   ======================================== */
+@media (hover: none) and (pointer: coarse) {
+    /* Larger touch targets */
+    .cta-button,
+    button,
+    a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .nav-links a {
+        padding: 15px 20px;
+    }
+    
+    /* Remove hover effects on touch devices */
+    .service-card:hover,
+    .case-study-card:hover,
+    .blog-post:hover {
+        transform: none;
+    }
+    
+    /* Better tap highlight */
+    * {
+        -webkit-tap-highlight-color: rgba(102, 126, 234, 0.1);
+    }
+}
+
+/* ========================================
+   ACCESSIBILITY IMPROVEMENTS
+   ======================================== */
+
+/* Focus indicators for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+/* Skip to main content link */
+.skip-to-main {
+    position: absolute;
+    left: -9999px;
+    z-index: 10001;
+    padding: 10px 20px;
+    background: var(--secondary-color);
+    color: white;
+    text-decoration: none;
+}
+
+.skip-to-main:focus {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+@media print {
+    .header,
+    .hamburger,
+    .nav-links,
+    .cta-button,
+    .hero-buttons,
+    .contact-form,
+    .subscribe-form,
+    .slider-controls,
+    .footer-social {
+        display: none !important;
+    }
+    
+    .hero {
+        background: white !important;
+        color: black !important;
+        padding: 20px 0;
+    }
+    
+    .hero::before {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+    
+    h1 { font-size: 24pt; }
+    h2 { font-size: 20pt; }
+    h3 { font-size: 16pt; }
+    
+    a {
+        text-decoration: underline;
+        color: black !important;
+    }
+    
+    .service-card,
+    .case-study-card,
+    .blog-post {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}
+
+/* ========================================
+   PERFORMANCE OPTIMIZATIONS
+   ======================================== */
+
+/* Reduce animations on low-performance devices */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* GPU acceleration for smoother animations */
+.service-card,
+.case-study-card,
+.blog-post,
+.cta-button {
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* ========================================
+   BROWSER-SPECIFIC FIXES
+   ======================================== */
+
+/* iOS Safari fixes */
+@supports (-webkit-touch-callout: none) {
+    /* Fix 100vh issue on iOS */
+    .hero {
+        min-height: -webkit-fill-available;
+    }
+    
+    /* Fix sticky positioning */
+    .header {
+        position: -webkit-sticky;
+        position: sticky;
+    }
+    
+    /* Better font rendering */
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Android Chrome fixes */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    select,
+    input,
+    textarea {
+        font-size: 16px; /* Prevents zoom on focus */
+    }
+}
+
+/* ========================================
+   UTILITY CLASSES FOR RESPONSIVE DESIGN
+   ======================================== */
+
+/* Hide/show elements based on screen size */
+.hide-mobile {
+    display: block;
+}
+
+.show-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none;
+    }
+    
+    .show-mobile {
+        display: block;
+    }
+}
+
+/* Responsive text alignment */
+@media (max-width: 768px) {
+    .text-center-mobile {
+        text-align: center !important;
+    }
+}
+
+/* Responsive spacing */
+@media (max-width: 768px) {
+    .mb-mobile-small {
+        margin-bottom: 15px !important;
+    }
+    
+    .mb-mobile-medium {
+        margin-bottom: 25px !important;
+    }
+    
+    .p-mobile-small {
+        padding: 15px !important;
+    }
 }
